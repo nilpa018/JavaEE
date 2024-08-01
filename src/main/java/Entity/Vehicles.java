@@ -24,6 +24,18 @@ public class Vehicles {
         List<Object> vehicles_List = new ArrayList<>();
     }
 
+    public Vehicles(int id, String brand, String model, String year, String color, String places) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.places = places;
+        List<Object> vehicles_List = new ArrayList<>();
+    }
+
+    public int getId() { return id; }
+
     public String getBrand() {
         return brand;
     }
