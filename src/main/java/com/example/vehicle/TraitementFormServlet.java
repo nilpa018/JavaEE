@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +26,10 @@ public class TraitementFormServlet extends HttpServlet {
             String year = req.getParameter("year");
             String color = req.getParameter("color");
             String places = req.getParameter("places");
-            try {
-                this.dao.addVehicle(brand, model, year, color, places);
-                resp.sendRedirect(req.getContextPath()+"/");
-            } catch (SQLException e) {
-                System.out.println("Création échoué !");
-            }
+
+            Vehicles vehicle = new Vehicles(brand, model, year, color, places);
+            dao.save(vehicle);
+            resp.sendRedirect(req.getContextPath()+"/");
         }
 
 }

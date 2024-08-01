@@ -1,9 +1,14 @@
 package Entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name="vehicules")
 public class Vehicles {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
     private String brand;
@@ -12,7 +17,7 @@ public class Vehicles {
     private String color;
     private String places;
 
-    public void vehicles() {
+    public Vehicles() {
     }
 
     public Vehicles(String brand, String model, String year, String color, String places) {

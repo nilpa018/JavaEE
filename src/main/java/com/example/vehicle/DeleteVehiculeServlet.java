@@ -21,8 +21,9 @@ public class DeleteVehiculeServlet extends HttpServlet {
             try {
                 dao.deleteVehicle(id);
                 resp.sendRedirect(req.getContextPath()+"/");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            } catch(Exception e) {
+                e.printStackTrace();
             }
+
         }
 }
